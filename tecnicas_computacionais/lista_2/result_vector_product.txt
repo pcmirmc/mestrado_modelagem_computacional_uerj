@@ -1,0 +1,1 @@
+O resultado do produto vetorial é: (-3i,6j,-3k)
