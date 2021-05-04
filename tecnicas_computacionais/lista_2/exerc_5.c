@@ -1,12 +1,12 @@
 /*  Lista : 2
-    Exercícios: 5 e 6
+    Exercício: 5
     Aluno: Lucas Magalhães Espinosa Ferreira
     Mestrado em Modelagem Computacional 2021/1     */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-//definindo temperatura em graus celsius
+//definindo variaveis globais
 char choice;
 int i,j,k;
 int vector_a [3];
@@ -18,14 +18,16 @@ char vector_b_address [50];
 char matrix_a_address [50];
 char matrix_b_address [50];
 
+// instanciando métodos
 void read_vectors();
 void read_matrix();
 void calculate_scalar_product();
 void calculate_vectorial_product();
 void calculate_matrix_sum();
 void calculate_matrix_multiplication();
+// estrutura principal
 int main() {
-
+    // coloquei um switch para um menu mais interativo
     printf("Bem Vindo a Calculadora de Geometria Analítica e Álgebra Linear!!!\n\n");
     printf("Digite a opção Desejada:\n1 - Cálculo produto escalar\n2 - Cálculo produto vetorial\n3 - Soma de matrizes 3x3\n4 - Multiplicação de matrizes 3x3\n");
     scanf("%c",&choice);
@@ -53,6 +55,7 @@ int main() {
     }
 }
 
+// funcao para ler os vetores que estão em arquivos txt vector_*.txt
 void read_vectors(){
     int i = 0;
     int c;
@@ -73,7 +76,8 @@ void read_vectors(){
         fclose(file2);
     }
 }
-    
+
+// funcao para ler matrizes que estão em arquivos txt matrix_*.txt
 void read_matrix(){
 
     int i = 0;
@@ -98,6 +102,7 @@ void read_matrix(){
     }
 }
 
+// funcao para calcular a sima de matrizes 3x3
 void calculate_matrix_sum(){
     int matrix_c [3][3];
     FILE *file_output;
@@ -123,6 +128,7 @@ void calculate_matrix_sum(){
     fclose(file_output);
 }
 
+// funcao para calcular multiplicacao de matrizes 3x3
 void calculate_matrix_multiplication(){
     int matrix_c [3][3];
     int sum = 0;
@@ -153,6 +159,7 @@ void calculate_matrix_multiplication(){
     fclose(file_output);
 }
 
+//funcao para calcular o produto escalar de dois vetores em R³
 void calculate_scalar_product(){
     int aux_var=0;
     int result=0;
@@ -167,6 +174,7 @@ void calculate_scalar_product(){
     fclose(file_output);
 }
 
+//funcao para calcular o produto vetorial de dois vetores em R³
 void calculate_vectorial_product(){
     FILE *file_output;
     int element_i = ((vector_a[1] * vector_b[2]) - (vector_a[2] * vector_b[1]));
