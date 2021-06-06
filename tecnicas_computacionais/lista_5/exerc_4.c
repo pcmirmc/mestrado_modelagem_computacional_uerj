@@ -1,5 +1,5 @@
 /*  Lista : 5
-    Exercício: 1
+    Exercício: 4
     Aluno: Lucas Magalhães Espinosa Ferreira
     Mestrado em Modelagem Computacional 2021/1     */
 
