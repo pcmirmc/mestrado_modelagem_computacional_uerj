@@ -7,18 +7,13 @@
 #include <stdlib.h>
 #include <time.h>
 #include <math.h>
+#include "trig.h"
 //definindo variaveis globais
-float a,b,result;
+float a,b;
 char choice;
+// instanciando métodos
 void read_values();
 void (*ptr) (float, float);
-void sin_sum(float a, float b);
-void cos_sum(float a, float b);
-void sin_diff(float a, float b);
-void cos_diff(float a, float b);
-void tan_sum(float a, float b);
-void tan_diff(float a, float b);
-// instanciando métodos
 
 // estrutura principal
 int main() {
@@ -27,6 +22,7 @@ int main() {
     printf("Digite a opção Desejada:\n1 - Soma de seno\n2 - Soma de cosseno\n3 - Diferença de seno\n4 - Diferença de cosseno\n5 - Soma de Tangente\n6 - Diferença de Tangente\n");
     scanf("%c",&choice);
     read_values();
+    // escolhe o tipo de calculo de acordo com a variavel choice do usuário
     switch (choice) {
         case '1':
             ptr = sin_sum;
@@ -55,57 +51,10 @@ int main() {
     (*ptr) (a,b);
 }
 
+// leitura dos angulos
 void read_values() {
     printf("Digite o valor do ângulo a: \n");
     scanf("%f",&a);
     printf("Digite o valor do ângulo b: \n");
     scanf("%f",&b);
-}
-
-void sin_sum(float a, float b) {
-
-    result = (sin(a) * cos(b)) + (sin(b) * cos(a));
-    printf("O resultado de sen( %f + %f ) é: %f",a,b,result);
-
-
-
-}
-
-void sin_diff(float a, float b) {
-
-    result = (sin(a) * cos(b)) - (sin(b) * cos(a));
-    printf("O resultado de sen( %f - %f ) é: %f",a,b,result);
-
-
-
-}
-
-void cos_sum(float a, float b) {
-
-    result = (cos(a) * cos(b)) - (sin(a) * sin(b));
-    printf("O resultado de cos( %f + %f ) é: %f",a,b,result);
-
-
-
-}
-
-void cos_diff(float a, float b) {
-
-    result = (cos(a) * cos(b)) + (sin(a) * sin(b));
-    printf("O resultado de cos( %f - %f ) é: %f",a,b,result);
-
-
-
-}
-
-void tan_sum(float a, float b) {
-    result = (tan(a) + tan(b)) / (1 - (tan(a) * tan(b)));
-    printf("O resultado de tan( %f + %f ) é: %f",a,b,result);
-
-}
-
-void tan_diff(float a, float b) {
-    result = (tan(a) - tan(b)) / (1 + (tan(a) * tan(b)));
-    printf("O resultado de tan( %f - %f ) é: %f",a,b,result);
-
 }

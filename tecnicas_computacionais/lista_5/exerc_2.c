@@ -14,13 +14,13 @@ int i,j;
 float DX,DY,b,c,a;
 float **matrix_a;
 char variables_address [50];
+// instanciando métodos
 void init();
 void create_matrix_with_dynamic_allocation();
 void write_matrix_c_var();
 void write_matrix_b_var();
 void write_matrix_a_var();
 void save_matrix();
-// instanciando métodos
 
 // estrutura principal
 int main() {
@@ -36,6 +36,7 @@ int main() {
 
 }
 
+// metodo inicial, le o arquivo de variaveis e calcula as variaveis secundarias,n,dx,dy,b,c
 void init() {
     FILE *file;
     printf("Digite o caminho para o arquivo com as variáveis LX,LY,DT,G,NX e NY separadas por vírgula: \n");
@@ -55,12 +56,15 @@ void init() {
 
 }
 
+// cria a matriz com alocação dinâmica
+
 void create_matrix_with_dynamic_allocation() {
     matrix_a = (float **)malloc(N * sizeof(float*));
     for (i=0; i<N; i++)
         matrix_a[i] = (float *)malloc(N * sizeof(float));
 }
 
+// calculo das diagonais que possuem a variavel c
 void write_matrix_c_var() {
 
      
@@ -79,6 +83,7 @@ void write_matrix_c_var() {
     }
 }
 
+// calculo das diagonais que possuem a variavel b
 void write_matrix_b_var() {
 
      int aux_1 = 0;
@@ -108,6 +113,7 @@ void write_matrix_b_var() {
     }
 }
 
+// calculo da diagonal principal a
 void write_matrix_a_var() {
     float base_a = G / DT;
      
@@ -120,6 +126,7 @@ void write_matrix_a_var() {
     }
 }
 
+// salvar a matrix como txt
 void save_matrix() {
     FILE *file_output;
     file_output = fopen("result_matrix.txt", "w");
