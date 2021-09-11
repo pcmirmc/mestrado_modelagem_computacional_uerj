@@ -43,7 +43,9 @@ class finite_diff_heat_problem:
         self.a = (np.pi*d*d) / 4
         self.m = (h_conv*self.p) / (k*self.a)
         self.h = (x_n - x_0) / node
+        # Q is the coef of Yi term.
         self.Q = 2 + (self.m*self.h*self.h)
+        # W is the independent term
         self.W = t_amb*self.m*self.h*self.h
         self.t_0 = t_0
         self.t_n = t_n
