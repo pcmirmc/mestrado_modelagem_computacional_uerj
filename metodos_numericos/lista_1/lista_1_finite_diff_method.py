@@ -1,5 +1,10 @@
-# pip install numpy and pip install matplotlib and pip install pandas
-# sudo apt-get install python3-tk to render plot on terminal
+# install dependencies in linux or windows PowerShell:
+    # pip install numpy
+    # pip install matplotlib
+    # pip install pandas
+# if in linux install tk module to render plot
+    # sudo apt-get install python3-tk
+    
 import numpy as np
 from matplotlib import pyplot as plt
 import pandas as pd
