@@ -4,10 +4,11 @@
     # pip install pandas
 # if in linux install tk module to render plot
     # sudo apt-get install python3-tk
-    
+
 import numpy as np
 from matplotlib import pyplot as plt
 import pandas as pd
+import time
 import logging
 logging.basicConfig(level=logging.INFO)
 
@@ -95,6 +96,8 @@ class finite_diff_heat_problem:
 logging.info("Initializing problem, loading variables...")
 heat_problem = finite_diff_heat_problem(node,t_0,t_n,x_0,x_n,h_conv,d,k,t_amb)
 matrix_a, matrix_b = heat_problem.create_matrix_for_linear_transform()
+start_time = time.time()
 y_solution = heat_problem.solve_linear_problem(matrix_a, matrix_b)
+print("--- %s seconds ---" % (time.time() - start_time))
 heat_problem.plot_results(y_solution)
 logging.info("Done...bye!")
