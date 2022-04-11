@@ -1,5 +1,6 @@
 from models import OptimizeRoute
 from platypus import NSGAII
+from platypus import *
 import json
 import pandas as pd
 
@@ -17,7 +18,7 @@ algorithm = NSGAII(OptimizeRoute(
     constraint_sign_list= problemCoefs['constraint_types'],
     objective_list= problemCoefs['objectives'],
     constraint_list= problemCoefs['constraints']
-))
+),variator=CompoundOperator(SBX(), HUX(), PM(), BitFlip()))
 
 algorithm.run(10000)
 result_feasible_solutions = [s for s in algorithm.result if s.feasible]
