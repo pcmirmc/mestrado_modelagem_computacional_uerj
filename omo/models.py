@@ -16,7 +16,11 @@ class OptimizeRoute(Problem):
             num_objectives,
             num_constraints
         )
-        self.types[:] = [Integer(0, 1) for _ in range(num_decision_variables)]
+        self.types[:] = [Integer(0, 1),Integer(0, 1),Integer(0, 1),Integer(0, 1),Integer(0, 1),
+        Integer(0, 1),Integer(0, 1),Integer(0, 1),Integer(0, 1),Integer(0, 1),Integer(0, 1),Integer(0, 1),
+        Integer(0, 1),Integer(0, 1),Integer(0, 1),Integer(0, 1),Integer(0, 1),Integer(0, 1),Integer(0, 1),
+        Integer(0, 1),Integer(0, 1),Integer(0, 1),Integer(0, 1),Integer(0, 1),Real(5,22),Real(5,22),
+        Real(5,22),Real(5,22),Real(5,22),Real(5,22)]
         self.constraints[:] = constraint_sign_list
         self.objective_list = objective_list
         self.constraint_list = constraint_list
